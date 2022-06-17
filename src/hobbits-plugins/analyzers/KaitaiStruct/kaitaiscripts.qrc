@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/kaitaistruct">
+        <file>scripts/runner.py</file>
+        <file>scripts/dependencies/kaitaistruct.py</file>
+    </qresource>
+</RCC>

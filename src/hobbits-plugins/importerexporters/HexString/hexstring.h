@@ -1,0 +1,39 @@
+#ifndef HEXSTRING_H
+#define HEXSTRING_H
+
+#include "importexportinterface.h"
+#include "parameterdelegate.h"
+
+class HexString : public QObject, ImporterExporterInterface
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "hobbits.ImporterExporterInterface.HexString")
+    Q_INTERFACES(ImporterExporterInterface)
+
+public:
+    HexString();
+
+    ImporterExporterInterface* createDefaultImporterExporter() override;
+
+    QString name() override;
+    QString description() override;
+    QStringList tags() override;
+
+    bool canExport() override;
+    bool canImport() override;
+
+    virtual QSharedPointer<ParameterDelegate> importParameterDelegate() override;
+    virtual QSharedPointer<ParameterDelegate> exportParameterDelegate() override;
+
+    QSharedPointer<ImportResult> importBits(const Parameters &parameters,
+                                            QSharedPointer<PluginActionProgress> progress) override;
+    QSharedPointer<ExportResult> exportBits(QSharedPointer<const BitContainer> container,
+                                            const Parameters &parameters,
+                                            QSharedPointer<PluginActionProgress> progress) override;
+
+private:
+    QSharedPointer<ParameterDelegate> m_importDelegate;
+    QSharedPointer<ParameterDelegate> m_exportDelegate;
+};
+
+#endif // HEXSTRING_H

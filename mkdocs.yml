@@ -1,0 +1,17 @@
+site_name: Hobbits
+nav:
+  - Overview: index.md
+  - User Guide: user-guide.md
+  - Plugin Developer Guide: plugin-developer-guide.md
+  - Python Plugins: python-plugins.md
+theme: readthedocs
+
+remote_branch: master
+
+extra_javascript:
+  - js/youtube.js
+
+copyright: © 2020 Mahlet, Inc.
+
+extra:
+  logo: 'img/mahlet_logo_big.png'
